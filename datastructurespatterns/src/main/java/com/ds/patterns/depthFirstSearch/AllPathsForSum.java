@@ -11,6 +11,8 @@ public class AllPathsForSum {
 		if(root == null) {
 			return;
 		}
+		
+		System.out.println("Stack add findAllPaths [root.value "+root.value+ " intermediateList -- "+intermediateList.size()+" finalList - "+finalList.size()+" ]");
 			
 		intermediateList.add(root.value);
 		
@@ -22,8 +24,11 @@ public class AllPathsForSum {
 			
 			findAllPaths(root.right, sum - root.value, intermediateList, finalList);
 		}
-			
-		System.out.println("root.value "+root.value+ " intermediateList -- "+intermediateList.toString());
+		
+		System.out.println();
+		System.out.println("Stack remove findAllPaths [root.value "+root.value+ " intermediateList -- "+intermediateList.size()+" finalList - "+finalList.size()+" ]");
+		System.out.println();
+		
 		intermediateList.remove(intermediateList.size() - 1);		
 	}
 	

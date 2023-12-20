@@ -8,7 +8,7 @@ public class SumOfPathNumbers {
 		return final1Count;
 	}
 	
-	private static int findRecursivePath(TreeNode root, int intermediatecount/* , int finalCount */){
+	private static int findRecursivePath(TreeNode root, int intermediatecount){
 		
 		if(root == null)
 			return 0;
@@ -16,17 +16,20 @@ public class SumOfPathNumbers {
 		intermediatecount *= 10;
 		intermediatecount += root.value;
 		
+		System.out.println("stack add findRecursivePath [ root.value - "+root.value+" intermediatecount - "+intermediatecount+" ]");
+		
 		if(root.left == null && root.right == null) {
-			//finalCount += intermediatecount;
-			//return finalCount;
 			return intermediatecount;
 		}
 		
-		return findRecursivePath(root.left, intermediatecount/*, finalCount*/) +
-		findRecursivePath(root.right, intermediatecount/*, finalCount*/);
+		int finalCount = findRecursivePath(root.left, intermediatecount) +
+		findRecursivePath(root.right, intermediatecount);
 		
-		//intermediatecount /= 10;
-		//return finalCount;
+		System.out.println();
+		System.out.println("stack remove findRecursivePath [ root.value - "+root.value+" intermediatecount - "+intermediatecount+" finalCount - "+finalCount+" ]");
+		System.out.println();
+		
+		return finalCount;
 	}
 	
 	public static void main(String[] args) {
