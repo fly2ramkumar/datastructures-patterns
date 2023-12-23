@@ -35,9 +35,7 @@ public class SubSetOfDuplicateNumbers {
 				resultSet.add(intermediateList);
 			}
 			
-			
-			previousNum = currentNum;
-	
+			previousNum = currentNum;	
 		}
 		
 		return resultSet;
